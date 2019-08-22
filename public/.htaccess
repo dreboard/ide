@@ -1,0 +1,4 @@
+# Redirect to the front controller
+Options +FollowSymLinks
+RewriteEngine On
+

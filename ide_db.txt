@@ -1,0 +1,398 @@
+
+
+
+
+ide.dev-php.site
+---------------------------------------------------------------------
+echo "# ide" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/dreboard/ide.git
+git push -u origin master
+
+---------------------------------------------------------------------
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104186490-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104186490-4');  // 2 = test
+</script>
+
+-----------------------------------------------------------------------
+
+$starttime = microtime ( true );
+
+try{
+            
+        }catch(error) {
+            //console.error(error);
+            console.log(error);
+        }
+----------------
+
+code_id=1{"code":{"id":"1","code_title":"Nums Assoc","code_section":"arrays","code_block":"$nums = ['one' =>1, 'two' => 2, 'three' => 3]","code_date":"1564957917"}}
+
+
+
+
+
+
+pre {
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	word-break: break-all;
+	word-wrap: break-word;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+
+pre, code{
+     direction: ltr;
+     text-align: left;
+}
+pre {border: solid 1px black;
+     font-size: 1.3 em;
+     color: #fff;
+     margin: 10px;
+     padding:10px;
+     background: #000}
+code {font-size:1.2em;
+     color: #fff}
+.my_box {
+	background: #F0EDED none repeat scroll 0 0;
+	border-left: 5px solid #000;
+	display: block;
+	padding: 11px 8px;
+}
+
+-------------------------------------------------------
+ <?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+try {
+    $conn = new PDO("mysql:host=$servername", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "CREATE DATABASE myDBPDO";
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    echo "Database created successfully<br>";
+    }
+catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+
+$conn = null;
+?> 
+
+
+    $pdo->exec("CREATE TABLE IF NOT EXISTS code (
+                    id INTEGER PRIMARY KEY, 
+                    code_title VARCHAR(50) NOT NULL,
+                    code_section VARCHAR(50) NOT NULL,
+                    code_block text NOT NULL, 
+                    code_date TIMESTAMP)");
+
+
+CREATE TABLE code (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+code_title VARCHAR(30) NOT NULL,
+code_block text NOT NULL,
+code_date TIMESTAMP
+) 
+
+
+ <?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDBPDO";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // sql to create table
+    $sql = "CREATE TABLE MyGuests (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(30) NOT NULL,
+    lastname VARCHAR(30) NOT NULL,
+    email VARCHAR(50),
+    reg_date TIMESTAMP
+    )";
+
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    echo "Table MyGuests created successfully";
+    }
+catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+
+$conn = null;
+?> 
+
+
+ <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "myDBPDO";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+    VALUES ('John', 'Doe', 'john@example.com')";
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    echo "New record created successfully";
+    }
+catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+
+$conn = null;
+?> 
+
+$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+    VALUES ('John', 'Doe', 'john@example.com')";
+$conn->exec($sql);
+$nums = ['one' =>1, 'two' => 2, 'three' => 3];
+
+
+<textarea class="ace_text-input" autocorrect="off" autocapitalize="off" spellcheck="false" style="opacity: 0; left: 44px; height: 14px; width: 7px; top: 56px;" wrap="off"></textarea>
+
+
+//php -m
+php -r 'echo debug_backtrace()[1]['function'];'
+php -r "$foo = get_defined_constants(); var_dump($foo);"
+
+
+
+system('php -v');
+//echo debug_backtrace()[1]['function'];
+echo '<pre>';
+print_r(debug_backtrace());
+ echo '</pre>';
+
+
+
+
+--------------------------------------------------------------------
+
+
+    $pdo->exec("CREATE TABLE IF NOT EXISTS `code` (
+                    `id` INTEGER PRIMARY KEY, 
+                    `code_title` VARCHAR(50) NOT NULL,
+                    `code_section` VARCHAR(50) NOT NULL,
+                    `code_block` text NOT NULL, 
+                    `code_date` TIMESTAMP)");
+-----------------------------------------------------------------------
+
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="w-75" scope="col">Title</th>
+                        <th class="w-auto" scope="col">Section</th>
+                        <th class="w-auto" scope="col">Saved</th>
+                        <th class="w-auto" scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php //var_dump($code); ?>
+                    <?php foreach ($code as $v): ?>
+                        <tr>
+                            <th class="code_row" data-code_id="<?php echo $v['id']; ?>" scope="row">
+                                <?php echo $v['code_title']; ?>
+                            </th>
+                            <td>
+                                <?php echo $v['code_section']; ?>
+                            </td>
+                            <td>
+                                <?php echo date('F j Y', $v['code_date']); ?>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger code_delete_btn" data-code_id="<?php echo $v['id']; ?>" type="button">X</button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+------------------------------------------------
+
+	$('th.code_row').each(function () {
+		var code_id = $(this).data('code_id');
+
+		$(this).on("click", function () {
+			console.log($(this).data('code_id'));
+
+			var post_url = 'code.php';
+			var request_method = 'post';
+			$.ajax({
+				url: post_url,
+				dataType: 'json',
+				type: request_method,
+				data: {code_id: $(this).data('code_id')},
+			}).done(function (response) {
+				$("#code").append(response.code_block);
+			});
+
+		});
+
+	});
+
+------------------------------------------------
+$path = '/';
+$file = 'test.txt';
+
+// basename — Returns trailing name component of path
+//basename ( string $path [, string $suffix ] ) : string
+basename ( string $path [, string $suffix ] );
+
+// copy — Copies file
+//copy ( string $source , string $dest [, resource $context ] ) : bool
+copy ( string $source , string $dest [, resource $context ] );
+
+//dirname — Returns a parent directory's path
+//dirname ( string $path [, int $levels = 1 ] ) : string
+dirname ($path);
+
+// fopen — Opens file or URL
+// fopen ( string $filename , string $mode [, bool $use_include_path = FALSE [, resource $context ]] ) : resource
+
+
+ public SplFileInfo::openFile ([ string $open_mode = "r" [, bool $use_include_path = FALSE [, resource $context = NULL ]]] ) : SplFileObject
+
+$fileinfo = new SplFileInfo($file);
+
+if ($fileinfo->isWritable()) {
+
+    $fileobj = $fileinfo->openFile('a');
+
+    $fileobj->fwrite("appended this sample text");
+}
+
+
+
+$handle = fopen($file, "r");
+$contents = fread($handle, filesize($filename));
+fclose($handle);
+
+$handle = fopen($file, "r");
+if ($handle) {
+    while (($buffer = fgets($handle, 4096)) !== false) {
+        echo $buffer;
+    }
+    if (!feof($handle)) {
+        echo "Error: unexpected fgets() fail\n";
+    }
+    fclose($handle);
+}
+
+
+
+---------------------------------------------------------------------
+
+                                <?php
+                                foreach($files as $file) : ?>
+                                <li>
+                                    <a id="numArray" href="#">
+                                        <?php echo $file['basename']; ?>
+                                    </a>
+                                </li>
+                                <?php endforeach;?>
+
+
+
+
+PHP String Functions
+<option value="load_explode()">explode</option>
+<option value="">implode</option>
+<option value="">strip_tags</option>
+<option value="">htmlentities</option>
+<option value="">html_entity_decode</option>
+<option value="">htmlspecialchars</option>
+<option value="">htmlspecialchars_decode</option>
+<option value="">strtolower</option>
+<option value="">strtoupper</option>
+<option value="">str_replace</option>
+<option value="">lcfirst</option>
+<option value="">ucfirst</option>
+<option value="">ucwords</option>
+<option value="">wordwrap</option>
+<option value="">strlen</option>
+<option value="">count</option>
+<option value="">trim</option>
+<option value="">ltrim</option>
+<option value="">rtrim</option>
+<option value="">print</option>
+<option value="">printf</option>
+<option value="">substr</option>
+<option value="">strstr</option>
+<option value="">strcmp</option>
+<option value="">str_pad</option>
+<option value="">str_split</option>
+<option value="">str_repeat</option>
+<option value="">str_shuffle</option>
+<option value="">md5</option>
+<option value="">similar_text</option>
+
+
+
+$string = '
+explode
+implode
+strip_tags
+htmlentities
+html_entity_decode
+htmlspecialchars
+htmlspecialchars_decode
+strtolower
+strtoupper
+str_replace
+lcfirst
+ucfirst
+ucwords
+wordwrap
+strlen
+count
+trim
+ltrim
+rtrim
+print
+printf
+substr
+strstr
+strcmp
+str_pad
+str_split
+str_repeat
+str_shuffle
+md5
+similar_text';
+
+$your_array = explode("\n", $string);
+
+LAMP PHP Developer, Zend Certified PHP Engineer (ZCE), Certified Laravel Developer
+
+
+
+
+.

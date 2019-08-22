@@ -1,0 +1,12 @@
+class MyClass { 
+    protected $nums = [];
+	
+    public function __construct(){
+        //
+    }
+}
+$obj = new MyClass();
+$obj->one = 1;
+$obj->two = 2;
+$obj->three = 3;
+echo '<pre>'; print_r($obj); echo '</pre>';

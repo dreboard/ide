@@ -1,7 +1,7 @@
 # PHP IDE
 
 My online php IDE.  Framework less product using the front controller design pattern.
-- Start write and run your php code and commands online
+- Start write and run your php and command line code online
 - Perform database queries from an integrated Sqlite file
 - Create and write to xml, html, log, txt and csv files.
 - Make API GET/POST requests

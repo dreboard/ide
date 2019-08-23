@@ -16,3 +16,4 @@
 [22-Aug-2019 23:15:11 America/New_York] PHP Stack trace:
 [22-Aug-2019 23:15:11 America/New_York] PHP   1. {main}() C:\_SITES\_PROJECTS\ide\public\index.php:0
 [22-Aug-2019 23:15:11 America/New_York] PHP   2. include() C:\_SITES\_PROJECTS\ide\public\index.php:28
+[23-Aug-2019 01:05:01 America/New_York] [{"id":"16","code_title":"SimpleXML 1","code_section":"strings","code_block":"if (file_exists('files\/file.xml')) {\n    $xml = simplexml_load_file('files\/file.xml');\n    echo '<pre>';\n    \/\/print_r($xml);\n\n$sxe = new SimpleXMLElement('files\/file.xml', NULL, TRUE);\necho $sxe->asXML();\n} else {\n    exit('Failed to open test.xml.');\n}","code_date":"1565761371"}]

@@ -29,3 +29,5 @@ yarn-error.log
 DEVMACHINE
 !/config/DEVMACHINE
 !/.env
+!/ide_db.txt
+!/logs/errors.log

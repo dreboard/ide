@@ -1,4 +1,7 @@
 <?php
+
+use App\Core\Api;
+
 defined('_DEFVAR') or exit('Restricted Access');
 require_once __DIR__.'/../layout/head.php';
 ?>
@@ -103,7 +106,8 @@ require_once __DIR__.'/../layout/head.php';
                 <?php
                 if (isset($_POST['uri'])) {
                     try {
-                        echo '<pre>',var_dump(\App\Core\Api::processPost($_POST['uri'], $_POST['postData']));
+                        echo '<pre>'; var_dump(Api::callAPI($_POST['request_method'], $_POST['uri'], $_POST['postData']));
+                        //Api::callAPI($_POST['request_method'], $_POST['uri'], $_POST['postData']);
                     } catch (Throwable $e) {
                         echo $e->getMessage();
                     }
@@ -125,13 +129,18 @@ require_once __DIR__.'/../layout/head.php';
                 <div class="card-body">
 
 
-                    <form method='post' class="form-inline">
-                        <label class="sr-only" for="inlineFormInputName2">Name</label>
-                        <input id="searchTxt" name="searchTxt" type="text" class="form-control"
-                               placeholder="Search for...">
-
-                        <button id="searchBtn" type="button" class="btn btn-primary">Submit</button>
-                    </form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method='post' class="row">
+                                <div class="col-12 col-sm pr-sm-0">
+                                    <input type="text" id="searchTxt" name="searchTxt" placeholder="Search for..." class="form-control">
+                                </div>
+                                <div class="col-12 col-sm-auto pl-sm-0">
+                                    <input type="button" id="searchBtn" value="Search" class="btn btn-primary btn-block">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
                 </div>
             </div>

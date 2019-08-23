@@ -11,6 +11,8 @@ git commit -m "first commit"
 git remote add origin https://github.com/dreboard/ide.git
 git push -u origin master
 
+
+https://gist.github.com/dreboard/1e3f60f88cce112de64fc9904e335b53
 ---------------------------------------------------------------------
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104186490-4"></script>

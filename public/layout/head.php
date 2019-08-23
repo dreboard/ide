@@ -99,6 +99,9 @@
                     <a class="nav-link" href="<?php echo $_SERVER['PHP_SELF'],'?page=db'; ?>">Database</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="<?php echo $_SERVER['PHP_SELF'],'?page=api'; ?>">API</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="<?php echo $_SERVER['PHP_SELF'],'?page=about'; ?>">About</a>
                 </li>
             </ul>

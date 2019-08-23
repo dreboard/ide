@@ -10,70 +10,137 @@ use Throwable;
  * Class Code
  * @package App\Core
  */
-class Api
+abstract class Api
 {
     /* @var Database */
     protected $db;
 
     protected static $uri = 'http://localhost/_PROJECTS/ide/public/requests/api.php';
 
-    /**
-     * Code constructor.
-     */
-    public function __construct()
-    {
-        $this->db = Database::instance();
-        $this->uri = 'http://localhost/_PROJECTS/ide/public/requests/api.php';
-    }
 
-    public static function processPost2(string $uri, $data)
-    {
-        $data = array(
-            'uri' => self::$uri,
-            'text' => 'Hello World'
-        );
-        return json_encode($data);
-    }
+    public static function callAPI($method, $url, $data){
 
-    /**
-     * Process cURL URI request
-     *
-     * @param string $uri
-     * @param array $data
-     * @return
-     */
-    public static function processPost($uri, $data)
-    {
-        $result = [];
-        $data = array(
-            'uri' => $uri,
-            'password' => '012345678'
-        );
-        try{
-            $ch = curl_init(self::$uri);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLINFO_HEADER_OUT, true);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        $curl = curl_init();
 
-
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                    'Content-Type: application/json',
-                    'Content-Length: ' . strlen(json_encode($data)))
-            );
-
-            $result['body'] = curl_exec($ch);
-            $result['headers'] = curl_getinfo($ch);
-
-            curl_close($ch);
-            //var_dump($uri);die;
-            return json_encode($result, JSON_PRETTY_PRINT);
-        } catch (Throwable $e) {
-            return json_decode($e->getMessage());
+        switch ($method){
+            case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+            case "PUT":
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+            default:
+                if ($data)
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
         }
 
+        // OPTIONS:
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'APIKEY: 111111111111111111111',
+            'Content-Type: application/json',
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+
+        // EXECUTE:
+        //$result = curl_exec($curl);
+        $result = [];
+        $result['body'] = curl_exec($curl);
+        $result['headers'] = curl_getinfo($curl);
+
+        $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+        if (in_array($http_status, range(400, 599))){
+            return self::checkResponse($http_status);
+        }
+        if(!$result){die("Connection Failure");}
+        curl_close($curl);
+        return $result;
     }
 
+    public static function checkResponse($http_status)
+    {
+        switch ($http_status){
+            case "405":
+                return ['error' => 'Method not allowed'];
+                break;
+            case "405":
+                return ['error' => 'Method not allowed'];
+                break;
+            case "500":
+                return ['error' => 'Server error'];
+                break;
+            default:
+                return true;
+        }
+    }
 
+    public static function sendPostRequest($method, $url, $data)
+    {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_POST, 1);
+        if ($data){
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        }
+        // OPTIONS:
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'APIKEY: 111111111111111111111',
+            'Content-Type: application/json',
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 
+        // EXECUTE:
+        //$result = curl_exec($curl);
+        $result = [];
+        $result['body'] = curl_exec($curl);
+        $result['headers'] = curl_getinfo($curl);
+
+        $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+        if (in_array($http_status, range(400, 599))){
+            return self::checkResponse($http_status);
+        }
+        if(!$result){die("Connection Failure");}
+        curl_close($curl);
+        return $result;
+
+    }
+    public static function sendGetRequest($url, $data)
+    {
+        $curl = curl_init();
+        if ($data){
+            $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+        // OPTIONS:
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'APIKEY: 111111111111111111111',
+            'Content-Type: application/json',
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+
+        // EXECUTE:
+        //$result = curl_exec($curl);
+        $result = [];
+        $result['body'] = curl_exec($curl);
+        $result['headers'] = curl_getinfo($curl);
+
+        $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+        if (in_array($http_status, range(400, 599))){
+            return self::checkResponse($http_status);
+        }
+        if(!$result){die("Connection Failure");}
+        curl_close($curl);
+        return $result;
+
+    }
 }

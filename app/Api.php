@@ -15,9 +15,19 @@ abstract class Api
     /* @var Database */
     protected $db;
 
+    /**
+     * @var string
+     */
     protected static $uri = 'http://localhost/_PROJECTS/ide/public/requests/api.php';
 
 
+    /**
+     * Call an API
+     * @param $method
+     * @param $url
+     * @param $data
+     * @return array|bool
+     */
     public static function callAPI($method, $url, $data){
 
         $curl = curl_init();
@@ -63,6 +73,10 @@ abstract class Api
         return $result;
     }
 
+    /**
+     * @param $http_status
+     * @return array|bool
+     */
     public static function checkResponse($http_status)
     {
         switch ($http_status){
@@ -80,6 +94,12 @@ abstract class Api
         }
     }
 
+    /**
+     * @param $method
+     * @param $url
+     * @param $data
+     * @return array|bool
+     */
     public static function sendPostRequest($method, $url, $data)
     {
         $curl = curl_init();
@@ -112,6 +132,13 @@ abstract class Api
         return $result;
 
     }
+
+
+    /**
+     * @param $url
+     * @param $data
+     * @return array|bool
+     */
     public static function sendGetRequest($url, $data)
     {
         $curl = curl_init();

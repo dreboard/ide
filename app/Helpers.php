@@ -11,12 +11,20 @@
 namespace App\Core;
 
 
+/**
+ * Class Helpers
+ * @package App\Core
+ */
 abstract class Helpers
 {
+    /**
+     * @var array
+     */
     protected static $characters = ['#', '&', ';', '`', '|', '*', '?', '~', '<', '>', '^', '(', ')','[', ']', '{', '}', '$', '\\', ',', '\x0A', '\xFF'];
 
 
     /**
+     * Escape argument wrapper for shell commands
      * @param string $command
      * @return bool|mixed
      */
@@ -29,6 +37,7 @@ abstract class Helpers
     }
 
     /**
+     * Is the string a php command
      * @param $string
      * @return bool
      */
@@ -38,6 +47,7 @@ abstract class Helpers
     }
 
     /**
+     * Is the string a shell command
      * @param string $code
      * @return bool|string
      */
@@ -47,6 +57,7 @@ abstract class Helpers
     }
 
     /**
+     * Strip bad characters from a command
      * @param string $code
      * @return string
      */

@@ -24,10 +24,7 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 /.env
-!/ide_db.txt
-!/logs/errors.log
 DEVMACHINE
-!/config/DEVMACHINE
-!/.env
-!/ide_db.txt
-!/logs/errors.log
+.idea
+/ide_db.txt
+logs/errors.log

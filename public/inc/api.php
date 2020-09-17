@@ -15,42 +15,8 @@ require_once __DIR__.'/../layout/head.php';
 
             <h4 class="mt-4 listSaved" data-section="code">API Client</h4>
 
-            <p>
-                <a id="showSaved" class="btn btn-primary" data-toggle="collapse" href="#showSavedTbl" role="button" aria-expanded="false" aria-controls="showSavedTbl">
-                    Saved Code
-                </a>
-            </p>
-            <div class="collapse" id="showSavedTbl">
-
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th class="w-75" scope="col">Title</th>
-                        <th class="w-auto" scope="col">Section</th>
-                        <th class="w-auto" scope="col">Saved</th>
-                        <th class="w-auto" scope="col"></th>
-                    </tr>
-                    </thead>
-                    <tbody id="saved_code">
-
-                    </tbody>
-                </table>
-
-
-            </div>
-
-            <div id="searchResult" class="alert alert-secondary overflow-auto" role="alert">
-
-            </div>
-
             <form method='post' class="mt-4" id="apiForm">
                 <div class="form-group">
-                    <div class="form-check mb-2 mr-sm-2">
-                        <input id="asCmd" class="form-check-input" type="checkbox" name="asCmd">
-                        <label class="form-check-label" for="asCmd">
-                            Run As Command
-                        </label>
-                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-10">
                             <input type="text" class="form-control" id="uri" name="uri" placeholder="Enter URI"

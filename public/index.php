@@ -27,6 +27,6 @@ if(isset($_GET['page']) && in_array($page, $routes)){
     }
 	include(__DIR__.'/inc/'.$page.".php");
 }else {
-	include(__DIR__."/404.php");
+	include(__DIR__.'/inc/ide.php');
 }
 

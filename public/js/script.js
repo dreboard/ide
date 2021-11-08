@@ -241,7 +241,7 @@ echo '<pre>'; print_r($obj); echo '</pre>';
             url: post_url,
             type: request_method,
         }).done(function (response) {
-            console.log(response);
+            //console.log(response);
             //response = $.parseJSON(response);
             $.each(JSON.parse(response), function (index, value) {
                 trHTML = '<tr class="new_code_row"><th><a href="#" class="code_link" data-code_id="'+ value.id +'"> ' + value.code_title + '</a></th><td>' + value.code_section + '</td><td>' + value.code_date + '</td><td><button class="btn btn-danger code_delete_btn" data-code_id="'+ value.id +'" type="button">X</button></td></tr>';
@@ -249,28 +249,23 @@ echo '<pre>'; print_r($obj); echo '</pre>';
                 //console.log(value.id);
 
                 $('.code_link').each(function (value) {
-                    var code_id = $(this).data('code_id');
+
                     $(this).off('click').on("click", function (evt) {
-                       //console.log($(this).data('code_id'));
+                        var post_code_id = $(this).data('code_id');
+                        console.log('id IS ' + post_code_id);
                         evt.preventDefault();
                         evt.stopImmediatePropagation();
-                        var post_url = 'requests/code.php';
-                        var request_method = 'post';
                         $.ajax({
-                            url: post_url,
-                            dataType: 'json',
-                            type: request_method,
-                            //contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                            data: {
-                                code_id: $(this).data('code_id')
-                            },
+                            url: 'requests/code.php/var/www/code',
+                            method:"POST",
+                            data: {code_id: post_code_id},
                         }).done(function (response_code) {
 
                             console.log(response_code);
                             try {
-                                //console.log(response_code.code_block);
+                                console.log(response_code.code_block);
 
-                                $('#code').append(response_code.code_block);
+                                $('#code').append(response_code);
                                 if(response_code.code_section === 'command'){
                                     $(asCmd).prop('checked', true);
                                 }

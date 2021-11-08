@@ -14,18 +14,11 @@ if(isset($post['test']) || isset($_POST['test'])){
     echo $query; //file_get_contents("php://input");
 }
 
-if(isset($post['code_id']) || isset($_POST['code_id'])){
+if(isset($post['code_id'])){
     try{
-        //header("Access-Control-Allow-Origin: *");//this allows coors
-        //header('Content-Type: application/json');
-        $query = filter_input(INPUT_POST, 'code_id', FILTER_SANITIZE_SPECIAL_CHARS) ?? filter_var($post['code_id'], FILTER_SANITIZE_NUMBER_INT);
-        //$query = filter_var($post['code_id'], FILTER_SANITIZE_NUMBER_INT);
-        $code = (new App\Core\Code)->find($query);
-
-        error_log(json_encode($code));die;
-
-        echo json_encode($code); //json_encode(['code' =>$code]);
-
+        error_log($post['code_id']);//die;
+        $code = (new App\Core\Code)->find($post['code_id']);
+        echo $code; //json_encode(['code' =>$code]);
     }catch(Exception $e){
         echo $e->getMessage();
     }

@@ -109,7 +109,7 @@ require_once __DIR__.'/../layout/head.php';
             <div class="code-display alert alert-secondary overflow-auto mb-5" role="alert">
                 <?php
                 if (isset($_POST['code'])) {
-
+                    \App\Core\Helpers::trace_start();
                     try{
                         if(App\Core\Helpers::isShellCmd($_POST['code']) && ENVIRONMENT !== 'local'){
                             echo "No shell commands";
@@ -129,7 +129,7 @@ require_once __DIR__.'/../layout/head.php';
                     }catch (Throwable $e){
                         echo $e->getMessage();
                     }
-
+                    \App\Core\Helpers::trace_stop();
                 } else {
                     echo $vars['output'];
                 }

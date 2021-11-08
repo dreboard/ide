@@ -14,12 +14,18 @@ class Database
     protected $pdo;
 
     protected function __construct() {
-        $opt  = array(
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-            PDO::ATTR_EMULATE_PREPARES   => FALSE,
-        );
-        $this->pdo = new PDO("sqlite:".__DIR__."/../db/live.sqlite");
+		try {
+			$opt  = array(
+				PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+				PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+				PDO::ATTR_EMULATE_PREPARES   => FALSE,
+			);
+			$this->pdo = new PDO("sqlite:".__DIR__."/../db/live.sqlite");
+		} catch(PDOException $e) {
+		   echo 'ERROR: ' . $e->getMessage();
+		   error_log($e->getMessage());
+		} 		
+
     }
 
 

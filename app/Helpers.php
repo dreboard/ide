@@ -67,4 +67,19 @@ abstract class Helpers
         return '<pre>'. system(trim($command)). '</pre>';
     }
 
+
+    public static function trace_start()
+    {
+        if (extension_loaded('xdebug')) {
+            //return call_user_func('xdebug_start_trace');
+        }
+        return false;
+    }
+    public static function trace_stop()
+    {
+        if (extension_loaded('xdebug')) {
+            //return call_user_func('xdebug_stop_trace');
+        }
+        return false;
+    }
 }

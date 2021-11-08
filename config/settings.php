@@ -11,8 +11,14 @@ if (file_exists(__DIR__.'/DEVMACHINE')){
 define('_DEFVAR', 1);
 $db = Database::instance();
 
+function myExceptionHandler (Exception $e)
+{
+    echo $e->getMessage();
+}
+set_exception_handler("myExceptionHandler");
 
 try{
+    //  db/live.sqlite
 	$pdo = new PDO("sqlite:".__DIR__."/../db/live.sqlite");
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

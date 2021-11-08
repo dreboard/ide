@@ -28,3 +28,4 @@ DEVMACHINE
 .idea
 /ide_db.txt
 logs/errors.log
+logs/trace/timestamp .xt

@@ -1,0 +1,26 @@
+Version: 2.9.0
+File format: 4
+TRACE START [2020-09-21 03:50:24]
+3	695	1	0.024567	1216848
+3	699	0	0.024595	1216848	App\Core\Helpers::isShellCmd	1		C:\_SITES\_PROJECTS\ide\public\inc\ide.php	114	1	$code = '// Convert special characters to HTML entities.\r\necho "<a href=\'#\'>Hello</a> World!";\r\necho "<br>";\r\n$new = htmlspecialchars("<a href=\'test\'>Hello</a> World!", ENT_QUOTES);\r\necho $new;// Make a string lowercase.\r\n$str = "HELLO WORLD!";\r\necho strtolower($str);// Convert special HTML entities back to characters.\r\n$str = "Hello -> & World!";\r\necho htmlspecialchars_decode($str);$nums = [\'one\' => [\'first\', \'one\'], 2 =>  [\'second\', \'two\'], 3=>  [\'third\', \'three\']];'
+4	700	0	0.024631	1216848	preg_match	0		C:\_SITES\_PROJECTS\ide\app\Helpers.php	56	2	'/system|shell_exec|^exec$|passthru/'	'// Convert special characters to HTML entities.\r\necho "<a href=\'#\'>Hello</a> World!";\r\necho "<br>";\r\n$new = htmlspecialchars("<a href=\'test\'>Hello</a> World!", ENT_QUOTES);\r\necho $new;// Make a string lowercase.\r\n$str = "HELLO WORLD!";\r\necho strtolower($str);// Convert special HTML entities back to characters.\r\n$str = "Hello -> & World!";\r\necho htmlspecialchars_decode($str);$nums = [\'one\' => [\'first\', \'one\'], 2 =>  [\'second\', \'two\'], 3=>  [\'third\', \'three\']];'
+4	700	1	0.024657	1216848
+3	699	1	0.024665	1216848
+3	701	0	0.024676	1216848	trim	0		C:\_SITES\_PROJECTS\ide\public\inc\ide.php	126	1	'// Convert special characters to HTML entities.\r\necho "<a href=\'#\'>Hello</a> World!";\r\necho "<br>";\r\n$new = htmlspecialchars("<a href=\'test\'>Hello</a> World!", ENT_QUOTES);\r\necho $new;// Make a string lowercase.\r\n$str = "HELLO WORLD!";\r\necho strtolower($str);// Convert special HTML entities back to characters.\r\n$str = "Hello -> & World!";\r\necho htmlspecialchars_decode($str);$nums = [\'one\' => [\'first\', \'one\'], 2 =>  [\'second\', \'two\'], 3=>  [\'third\', \'three\']];'
+3	701	1	0.024692	1216848
+3	702	0	0.024745	1221048	eval	1	'// Convert special characters to HTML entities.\r\necho "<a href=\'#\'>Hello</a> World!";\r\necho "<br>";\r\n$new = htmlspecialchars("<a href=\'test\'>Hello</a> World!", ENT_QUOTES);\r\necho $new;// Make a string lowercase.\r\n$str = "HELLO WORLD!";\r\necho strtolower($str);// Convert special HTML entities back to characters.\r\n$str = "Hello -> & World!";\r\necho htmlspecialchars_decode($str);$nums = [\'one\' => [\'first\', \'one\'], 2 =>  [\'second\', \'two\'], 3=>  [\'third\', \'three\']];'	C:\_SITES\_PROJECTS\ide\public\inc\ide.php	126	0
+4	703	0	0.024773	1221048	htmlspecialchars	0		C:\_SITES\_PROJECTS\ide\public\inc\ide.php(126) : eval()'d code	4	2	'<a href=\'test\'>Hello</a> World!'	3
+4	703	1	0.024792	1221208
+4	704	0	0.024800	1221208	strtolower	0		C:\_SITES\_PROJECTS\ide\public\inc\ide.php(126) : eval()'d code	7	1	'HELLO WORLD!'
+4	704	1	0.024815	1221248
+4	705	0	0.024822	1221208	htmlspecialchars_decode	0		C:\_SITES\_PROJECTS\ide\public\inc\ide.php(126) : eval()'d code	9	1	'Hello -> & World!'
+4	705	1	0.024834	1221256
+3	702	1	0.024843	1221208
+3	706	0	0.024853	1219640	App\Core\Helpers::trace_stop	1		C:\_SITES\_PROJECTS\ide\public\inc\ide.php	132	0
+4	707	0	0.024864	1219640	extension_loaded	0		C:\_SITES\_PROJECTS\ide\app\Helpers.php	80	1	'xdebug'
+4	707	1	0.024877	1219640
+4	708	0	0.024884	1219640	call_user_func:{C:\_SITES\_PROJECTS\ide\app\Helpers.php:81}	0		C:\_SITES\_PROJECTS\ide\app\Helpers.php	81	1	'xdebug_stop_trace'
+5	709	0	0.024897	1219640	xdebug_stop_trace	0		C:\_SITES\_PROJECTS\ide\app\Helpers.php	81	0
+			0.024908	1219736
+TRACE END   [2020-09-21 03:50:24]
+

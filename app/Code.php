@@ -42,8 +42,9 @@ class Code
         $stmt = $this->db->prepare("SELECT * FROM code WHERE id = ?");
         $stmt->bindValue(1, $id);
         $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        error_log($results);
+        return json_encode($results);
     }
 
     /**

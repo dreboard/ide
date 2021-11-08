@@ -6,6 +6,9 @@ My online php IDE.  Framework less product using the front controller design pat
 - Create and write to xml, html, log, txt and csv files.
 - Make API GET/POST requests
 
+## WARNING
+
+This code make use of the PHP eval() function. Run ONLY a local instance of this script
 
 ## Installation
 

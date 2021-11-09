@@ -5,7 +5,7 @@ My online php IDE.  Framework less product using the front controller design pat
 - Perform database queries from an integrated Sqlite file
 - Create and write to xml, html, log, txt and csv files.
 - Make API GET/POST requests
-
+![GitHub Logo](ide.png)
 ## WARNING
 
 This code make use of the PHP eval() function. Run ONLY a local instance of this script
@@ -20,7 +20,7 @@ git clone https://github.com/dreboard/ide.git
 php composer.phar install
 php -S 0.0.0.0:8000 -t ./public
 ```
-
+- http://localhost:8000/
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
